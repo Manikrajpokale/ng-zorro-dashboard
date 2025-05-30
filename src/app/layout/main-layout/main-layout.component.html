@@ -1,0 +1,50 @@
+<nz-layout>
+    <!-- Sidebar -->
+    <nz-sider class="responsive-sider" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzBreakpoint]="'md'" [nzWidth]="220"
+        [nzCollapsedWidth]="collapsedWidth" [nzZeroTrigger]="null" [nzTrigger]="null">
+        <div class="logo">LOGO</div>
+        <ul nz-menu nzTheme="dark" nzMode="inline">
+            <ng-container *ngFor="let item of menuItems">
+                <li *ngIf="item.children?.length" nz-submenu [nzTitle]="item.title" [nzIcon]="item.icon">
+                    <ul>
+                        <li *ngFor="let child of item.children" nz-menu-item [routerLink]="child.route"
+                            (click)="onMenuItemClick()">
+                            {{ child.title }}
+                        </li>
+                    </ul>
+                </li>
+                <li *ngIf="!item.children" nz-menu-item [routerLink]="item.route" (click)="onMenuItemClick()">
+                    <nz-icon [nzType]="item.icon"></nz-icon>
+                    <span>{{ item.title }}</span>
+                </li>
+            </ng-container>
+        </ul>
+    </nz-sider>
+    <div class="sidebar-backdrop" *ngIf="showBackdrop" (click)="closeSidebar()"></div>
+
+    <!-- Right Side Layout -->
+    <nz-layout class="main-content-layout">
+        <!-- Header -->
+        <nz-header class="responsive-header">
+            <nz-icon class="trigger" [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+                (click)="toggleSidebar()"></nz-icon>
+        </nz-header>
+
+        <!-- Main Content -->
+        <nz-content>
+            <nz-breadcrumb>
+                <nz-breadcrumb-item>User</nz-breadcrumb-item>
+                <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+            </nz-breadcrumb>
+
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+
+        <!-- Footer -->
+        <nz-footer class="responsive-footer">
+            Ant Design ©2024 Implemented by Angular
+        </nz-footer>
+    </nz-layout>
+</nz-layout>
