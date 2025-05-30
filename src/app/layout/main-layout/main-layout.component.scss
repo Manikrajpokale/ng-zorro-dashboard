@@ -23,7 +23,7 @@ nz-layout {
 }
 
 .responsive-header {
-  background: #fff;
+  background: #68a1f5;
   padding: 0 16px;
   display: flex;
   align-items: center;
@@ -54,12 +54,12 @@ nz-breadcrumb {
 .inner-content {
   padding: 24px;
   background: #fff;
-  min-height: calc(100vh - 184px); // Adjust for header + footer + breadcrumb
+  min-height: calc(110vh - 194px); // Adjust for header + footer + breadcrumb
 }
 
 .responsive-footer {
   text-align: center;
-  background: #f0f2f5;
+  background: #68a1f5;
   padding: 12px;
 }
 
