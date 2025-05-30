@@ -22,23 +22,15 @@ export class MainLayoutComponent {
       title: 'User',
       icon: 'user',
       children: [
-        { title: 'Tom', route: '/user/tom' },
-        { title: 'Bill', route: '/user/bill' },
-        { title: 'Alex', route: '/user/alex' }
-      ]
-    },
-    {
-      title: 'Team',
-      icon: 'team',
-      children: [
-        { title: 'Team 1', route: '/team/team1' },
-        { title: 'Team 2', route: '/team/team2' }
+        { title: 'Tom', route: '/dashboard' },
+        { title: 'Bill', route: '/dashboard' },
+        { title: 'Alex', route: '/dashboard' }
       ]
     },
     {
       title: 'File',
       icon: 'file',
-      route: '/file'
+      route: '/dashboard'
     }
   ];
 
